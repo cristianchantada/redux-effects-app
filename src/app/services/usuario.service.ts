@@ -11,7 +11,13 @@ export class UsuarioService {
   private http: HttpClient = inject(HttpClient);
 
   getUsers() {
-    return this.http.get(`${this.url}/users`).pipe(
+    return this.http.get(`${this.url}/users?delay=3`).pipe(
+      map( resp => {return resp['data']})
+    );
+  }
+
+  getUserById(id: string) {
+    return this.http.get(`${this.url}/user/${id}`).pipe(
       map( resp => {return resp['data']})
     );
   }
