@@ -4,7 +4,9 @@ import * as usuariosActions from '../actions';
 import { catchError, map, mergeMap, of, tap } from 'rxjs';
 import { UsuarioService } from '../../services/usuario.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UsuarioEffects {
   constructor(
     private actions$: Actions,
